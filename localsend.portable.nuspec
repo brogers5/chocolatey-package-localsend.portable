@@ -55,6 +55,7 @@ choco feature enable --name="'useRememberedArgumentsForUpgrades'"
     <releaseNotes>https://github.com/localsend/localsend/releases/tag/v1.10.0</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-os-dependency.extension" version="0.0.1" />
+      <dependency id="chocolatey-fastanswers.extension" version="0.0.1" />
       <dependency id="vcredist140" version="14.20.27508.1" />
     </dependencies>
   </metadata>

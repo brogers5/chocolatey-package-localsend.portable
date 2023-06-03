@@ -3,6 +3,14 @@ $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
 Confirm-WinMinimumBuild -ReqBuild 7601
 
+$majorOsVersion = [Environment]::OSVersion.Version.Major
+$minorOsVersion = [Environment]::OSVersion.Version.Minor
+if (($majorOsVersion -eq 6) -and ($minorOsVersion -ge 2) -and !(Get-IsWinServer)) {
+  #Only proceed on Windows 8.1 due to issues with GUI rendering in Windows 8
+  #https://github.com/flutter/flutter/issues/89583
+  Confirm-Win81
+}
+
 $archiveFileName = 'LocalSend-1.10.0-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
