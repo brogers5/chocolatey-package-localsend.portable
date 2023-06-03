@@ -1,7 +1,7 @@
 ﻿$ErrorActionPreference = 'Stop'
 $toolsDir = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-Confirm-WinMinimumBuild -ReqBuild 9600
+Confirm-WinMinimumBuild -ReqBuild 7601
 
 $archiveFileName = 'LocalSend-1.10.0-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
