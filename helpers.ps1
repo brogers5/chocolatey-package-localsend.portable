@@ -22,7 +22,7 @@ function Get-SoftwareUri($Version) {
 
     $windowsArchiveAsset = $null
     foreach ($asset in $releaseAssets) {
-        if ($asset.name -match 'LocalSend-([\d\.]+)-windows\.zip$') {
+        if ($asset.name -match 'LocalSend-([\d\.]+)-windows(-x86-64)?\.zip$') {
             $windowsArchiveAsset = $asset
             break;
         }

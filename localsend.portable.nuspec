@@ -51,7 +51,7 @@ For future upgrade operations, consider opting into Chocolatey's `useRememberedA
 ```shell
 choco feature enable --name="'useRememberedArgumentsForUpgrades'"
 ```
-]]></description>
+]]>    </description>
     <releaseNotes>https://github.com/localsend/localsend/releases/tag/v1.9.1</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-os-dependency.extension" version="0.0.1" />
@@ -62,7 +62,7 @@ choco feature enable --name="'useRememberedArgumentsForUpgrades'"
     <file src="tools\chocolateybeforemodify.ps1" target="tools" />
     <file src="tools\chocolateyinstall.ps1" target="tools" />
     <file src="tools\chocolateyuninstall.ps1" target="tools" />
-    <file src="tools\LocalSend-*-windows.zip" target="tools" />
+    <file src="tools\LocalSend-*-windows*.zip" target="tools" />
     <file src="tools\LICENSE.txt" target="tools" />
     <file src="tools\VERIFICATION.txt" target="tools" />
   </files>
