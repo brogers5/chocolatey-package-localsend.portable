@@ -58,6 +58,7 @@ choco feature enable --name="'useRememberedArgumentsForUpgrades'"
       <dependency id="chocolatey-fastanswers.extension" version="0.0.1" />
       <dependency id="vcredist140" version="14.20.27508.1" />
       <dependency id="netfx-4.8" version="4.8.0.0" />
+      <dependency id="wireless-lan-service" version="1.0.0" />
     </dependencies>
   </metadata>
   <files>
