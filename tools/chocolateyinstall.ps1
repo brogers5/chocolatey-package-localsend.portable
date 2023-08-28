@@ -12,7 +12,7 @@ else {
   Confirm-WinMinimumBuild -ReqBuild 7601
 }
 
-$archiveFileName = 'LocalSend-1.10.0-windows-x86-64.zip'
+$archiveFileName = 'LocalSend-1.11.0-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
 $packageArgs = @{
