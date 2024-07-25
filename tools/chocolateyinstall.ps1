@@ -3,7 +3,7 @@ $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
 Confirm-WinMinimumBuild -ReqBuild 7601
 
-$archiveFileName = 'LocalSend-1.15.1-windows-x86-64.zip'
+$archiveFileName = 'LocalSend-1.15.2-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
 $packageArgs = @{

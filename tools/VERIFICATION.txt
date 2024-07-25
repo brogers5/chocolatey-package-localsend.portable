@@ -5,18 +5,18 @@ in verifying that this package's contents are trustworthy.
 The packaged Windows archive is available for independent download via the Releases page on
 LocalSend's GitHub repository. A download link for the packaged version is included at the
 following URL:
-https://github.com/localsend/localsend/releases/tag/v1.15.1
+https://github.com/localsend/localsend/releases/tag/v1.15.2
 
 For convenience, this is a direct URL to the relevant asset:
-https://github.com/localsend/localsend/releases/download/v1.15.1/LocalSend-1.15.1-windows-x86-64.zip
+https://github.com/localsend/localsend/releases/download/v1.15.2/LocalSend-1.15.2-windows-x86-64.zip
 
 The following PowerShell command will print a calculated SHA256 hash:
 
-    (Get-FileHash -Path LocalSend-1.15.1-windows-x86-64.zip -Algorithm SHA256).Hash
+    (Get-FileHash -Path LocalSend-1.15.2-windows-x86-64.zip -Algorithm SHA256).Hash
 
 This command should be executed against an independently downloaded archive, as well as the copy
 distributed with the package. Both hash values should be identical. A matching hash value should
 confirm that no corruption or tampering has occurred during this package's generation process.
 
 For reference, the following SHA256 hash was calculated during the package's automated creation:
-F3B75999E9A92BCFD12524060FB1409732F8500F3DFF0CB55D188B0787172D73
+977F02CA1C17B8E4F3C4BE19DE0116ACDEE87EA6D52888D1C27C2199B653FA8A
