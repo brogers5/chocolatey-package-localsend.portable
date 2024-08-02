@@ -6,9 +6,11 @@ Confirm-WinMinimumBuild -ReqBuild 7601
 $archiveFileName = 'LocalSend-1.15.3-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
+$unzipLocation = Join-Path -Path (Get-ToolsLocation) -ChildPath $env:ChocolateyPackageName
+
 $packageArgs = @{
   packageName    = $env:ChocolateyPackageName
-  unzipLocation  = $toolsDir
+  unzipLocation  = $unzipLocation
   fileFullPath64 = $archiveFilePath
 }
 
@@ -20,18 +22,11 @@ Remove-Item -Path $archiveFilePath -Force -ErrorAction SilentlyContinue
 $softwareName = 'LocalSend'
 $binaryFileName = 'localsend_app.exe'
 $linkName = "$softwareName.lnk"
-$targetPath = Join-Path -Path $toolsDir -ChildPath $binaryFileName
+$targetPath = Join-Path -Path $unzipLocation -ChildPath $binaryFileName
 
 $pp = Get-PackageParameters
-if ($pp.NoShim) {
-  #Create shim ignore file
-  $ignoreFilePath = Join-Path -Path $toolsDir -ChildPath "$binaryFileName.ignore"
-  Set-Content -Path $ignoreFilePath -Value $null -ErrorAction SilentlyContinue
-}
-else {
-  #Create GUI shim
-  $guiShimPath = Join-Path -Path $toolsDir -ChildPath "$binaryFileName.gui"
-  Set-Content -Path $guiShimPath -Value $null -ErrorAction SilentlyContinue
+if (!$pp.NoShim) {
+  Install-BinFile -Name 'localsend_app' -Path $targetPath -UseStart
 }
 
 if (!$pp.NoDesktopShortcut) {
