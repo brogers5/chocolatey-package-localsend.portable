@@ -10,7 +10,7 @@ For more information on the LocalSend Protocol, see the [documentation](https://
 
 ## Package Parameters
 
-* `/NoShim` - Opt out of creating a GUI shim.
+* `/NoShim` - Opt out of creating a GUI shim, and removes any existing shim.
 * `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
 * `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start LocalSend after installation completes.

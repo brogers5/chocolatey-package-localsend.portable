@@ -53,8 +53,12 @@ $binaryFileName = 'localsend_app.exe'
 $linkName = "$softwareName.lnk"
 $targetPath = Join-Path -Path $unzipLocation -ChildPath $binaryFileName
 
-if (!$pp.NoShim) {
-  Install-BinFile -Name 'localsend_app' -Path $targetPath -UseStart
+$shimName = 'localsend_app'
+if ($pp.NoShim) {
+  Uninstall-BinFile -Name $shimName
+}
+else {
+  Install-BinFile -Name $shimName -Path $targetPath -UseStart
 }
 
 if (!$pp.NoDesktopShortcut) {
