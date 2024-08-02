@@ -6,6 +6,7 @@ Confirm-WinMinimumBuild -ReqBuild 7601
 $archiveFileName = 'LocalSend-1.15.3-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
+$legacyUnzipLocation = $toolsDir
 $unzipLocation = Join-Path -Path (Get-ToolsLocation) -ChildPath $env:ChocolateyPackageName
 
 $packageArgs = @{
@@ -14,17 +15,44 @@ $packageArgs = @{
   fileFullPath64 = $archiveFilePath
 }
 
+$legacySettingsFilePath = Join-Path -Path $legacyUnzipLocation -ChildPath 'settings.json'
+$settingsFilePath = Join-Path -Path $unzipLocation -ChildPath 'settings.json'
+
+$pp = Get-PackageParameters
+$shouldRestoreSettings = $false
+$tempSettingsFilePath = New-TemporaryFile
+$shouldCleanUpLegacySettingsFile = $false
+if ((Test-Path -Path $settingsFilePath) -and !$pp.DontPersistSettings) {
+  Copy-Item -Path $settingsFilePath -Destination $tempSettingsFilePath -Force
+  $shouldRestoreSettings = $true
+} 
+elseif ((Test-Path -Path $legacySettingsFilePath)) {
+  if (!$pp.DontPersistSettings) {
+    Copy-Item -Path $legacySettingsFilePath -Destination $tempSettingsFilePath -Force
+    $shouldRestoreSettings = $true
+  }
+
+  $shouldCleanUpLegacySettingsFile = $true
+}
+
 Get-ChocolateyUnzip @packageArgs
 
-#Clean up ZIP archive post-install to prevent unnecessary disk bloat
+if ($shouldRestoreSettings) {
+  Copy-Item -Path $tempSettingsFilePath -Destination $settingsFilePath -Force
+}
+
+#Clean up some files post-install to prevent unnecessary disk bloat
 Remove-Item -Path $archiveFilePath -Force -ErrorAction SilentlyContinue
+Remove-Item -Path $tempSettingsFilePath -Force -ErrorAction SilentlyContinue
+if ($shouldCleanUpLegacySettingsFile) {
+  Remove-Item -Path $legacySettingsFilePath -Force -ErrorAction SilentlyContinue
+}
 
 $softwareName = 'LocalSend'
 $binaryFileName = 'localsend_app.exe'
 $linkName = "$softwareName.lnk"
 $targetPath = Join-Path -Path $unzipLocation -ChildPath $binaryFileName
 
-$pp = Get-PackageParameters
 if (!$pp.NoShim) {
   Install-BinFile -Name 'localsend_app' -Path $targetPath -UseStart
 }

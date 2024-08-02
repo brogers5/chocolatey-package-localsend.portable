@@ -14,6 +14,7 @@ For more information on the LocalSend Protocol, see the [documentation](https://
 * `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
 * `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start LocalSend after installation completes.
+* `/DontPersistSettings` - Opt out of persisting the settings file (`settings.json`) during package upgrades/uninstalls.
 
 ## Package Notes
 
