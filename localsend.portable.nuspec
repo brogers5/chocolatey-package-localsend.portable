@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>localsend.portable</id>
-    <version>1.15.3</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-localsend.portable/tree/v1.15.3</packageSourceUrl>
+    <version>1.15.3.20240803</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-localsend.portable/tree/v1.15.3.20240803</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>LocalSend (Portable)</title>
     <authors>Tien Do Nam</authors>
@@ -30,10 +30,11 @@ For more information on the LocalSend Protocol, see the [documentation](https://
 
 ## Package Parameters
 
-* `/NoShim` - Opt out of creating a GUI shim.
+* `/NoShim` - Opt out of creating a GUI shim, and removes any existing shim.
 * `/NoDesktopShortcut` - Opt out of creating a Desktop shortcut.
 * `/NoProgramsShortcut` - Opt out of creating a Programs shortcut in your Start Menu.
 * `/Start` - Automatically start LocalSend after installation completes.
+* `/DontPersistSettings` - Opt out of persisting the settings file (`settings.json`) during package upgrades/uninstalls.
 
 ## Package Notes
 
