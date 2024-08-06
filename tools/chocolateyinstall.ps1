@@ -20,7 +20,7 @@ $settingsFilePath = Join-Path -Path $unzipLocation -ChildPath 'settings.json'
 
 $pp = Get-PackageParameters
 $shouldRestoreSettings = $false
-$tempSettingsFilePath = New-TemporaryFile
+$tempSettingsFilePath = Get-Item -Path ([System.IO.Path]::GetTempFilename())
 $shouldCleanUpLegacySettingsFile = $false
 if ((Test-Path -Path $settingsFilePath) -and !$pp.DontPersistSettings) {
   Copy-Item -Path $settingsFilePath -Destination $tempSettingsFilePath -Force
