@@ -3,7 +3,7 @@ $toolsDir = "$(Split-Path -Parent $MyInvocation.MyCommand.Definition)"
 
 Confirm-WinMinimumBuild -ReqBuild 9200
 
-$archiveFileName = 'LocalSend-1.16.1-windows-x86-64.zip'
+$archiveFileName = 'LocalSend-1.17.0-windows-x86-64.zip'
 $archiveFilePath = Join-Path -Path $toolsDir -ChildPath $archiveFileName
 
 $legacyUnzipLocation = $toolsDir

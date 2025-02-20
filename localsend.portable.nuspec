@@ -3,17 +3,17 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>localsend.portable</id>
-    <version>1.16.1</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-localsend.portable/tree/v1.16.1</packageSourceUrl>
+    <version>1.17.0</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-localsend.portable/tree/v1.17.0</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>LocalSend (Portable)</title>
     <authors>Tien Do Nam</authors>
     <projectUrl>https://localsend.org/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-localsend.portable@d0493af839be5c7d10d4df0a9fd807287f08e569/localsend.portable.png</iconUrl>
-    <copyright>Copyright (c) 2022-2024 Tien Do Nam</copyright>
-    <licenseUrl>https://github.com/localsend/localsend/blob/v1.16.1/LICENSE</licenseUrl>
+    <copyright>Copyright (c) 2022-2025 Tien Do Nam</copyright>
+    <licenseUrl>https://github.com/localsend/localsend/blob/v1.17.0/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <projectSourceUrl>https://github.com/localsend/localsend/tree/v1.16.1</projectSourceUrl>
+    <projectSourceUrl>https://github.com/localsend/localsend/tree/v1.17.0</projectSourceUrl>
     <mailingListUrl>https://github.com/localsend/localsend/discussions</mailingListUrl>
     <bugTrackerUrl>https://github.com/localsend/localsend/issues</bugTrackerUrl>
     <tags>localsend message file transfer 64-bit portable cross-platform foss</tags>
@@ -44,7 +44,7 @@ For future upgrade operations, consider opting into Chocolatey's `useRememberedA
 choco feature enable --name="'useRememberedArgumentsForUpgrades'"
 ```
 ]]></description>
-    <releaseNotes>https://github.com/localsend/localsend/releases/tag/v1.16.1</releaseNotes>
+    <releaseNotes>https://github.com/localsend/localsend/releases/tag/v1.17.0</releaseNotes>
     <dependencies>
       <dependency id="chocolatey-os-dependency.extension" version="0.0.1" />
       <dependency id="kb4019990" version="1.0.0" />
